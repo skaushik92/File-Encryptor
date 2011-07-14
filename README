@@ -1,0 +1,22 @@
+===================
+Introduction
+===================
+This repository contains code to encrypt and decrypt any file into an already existing image. The decryptor only decrypts images encrypted by the given encryptor.
+===================
+History
+===================
+----------------
+Wednesday Jul 13
+----------------
+18:00 - Initial code set up.
+===================
+Author
+===================
+These solutions were created by Kaushik Shankar.
+student.kaushik (at) gmail.com
+===================
+Permissions
+===================
+The information contained within my files can be used freely for noncommercial purposes.
+Permission to use the information contained within my files is required before commercial use.
+For both cases, acknowledgement is required.
