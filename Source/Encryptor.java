@@ -107,20 +107,19 @@ public class Encryptor {
 		 * to store the information given in the 
 		 * input file.
 		 */
-		if (args.length == 1) {
+		else if (args.length == 1) {
 			inputFileName = args[0];
 			
 			input = ByteIO.readFile(inputFileName);
 			
-			if (input == null) {
+			if (input == null)
 				System.exit(-1);
-			}
             
 			calculateNecessaryResources(true);
 			System.exit(0);
 		}
 		
-		if (args.length == 2) {
+		else if (args.length == 2) {
 			inputFileName = args[0];
 			inputImageName= args[1];
 			strongEncryption = false;
@@ -128,29 +127,33 @@ public class Encryptor {
 			input = ByteIO.readFile(inputFileName);
 			image = ByteIO.readImage(inputImageName);
 			
-			if (input == null || image == null) {
+			if (input == null || image == null)
 				System.exit(-1);
-			}
+				
 			imageHeight= image.length;
 			imageWidth = imageHeight == 0 ? 0 : image[0].length;
 		}
 		
-		if (args.length == 3) {
+		else if (args.length == 3) {
 			inputFileName = args[0];
 			inputImageName= args[1];
 			
 			input = ByteIO.readFile(inputFileName);
 			image = ByteIO.readImage(inputImageName);
 			
-			if (input == null || image == null) {
+			if (input == null || image == null)
 				System.exit(-1);
-			}
+				
 			imageHeight= image.length;
 			imageWidth = imageHeight == 0 ? 0 : image[0].length;
 			
-			if (args[2].equals("-STR")) {
+			if (args[2].equals("-STR"))
 				strongEncryption = true;
-			}
+		}
+		
+		else {
+			System.err.println("Proper Usage: java FileEncryptor inputFileName [inputPNGImageName [-STR]]");
+			System.exit(-1);
 		}
 	}
     

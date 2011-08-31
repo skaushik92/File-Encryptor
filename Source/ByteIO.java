@@ -59,16 +59,15 @@ public class ByteIO {
 			int width = inputImage.getWidth();
 			int height= inputImage.getHeight();
 			
-			byte[][][] imageInBytes = new byte[width][height][4];
+			byte[][][] imageInBytes = new byte[height][width][4];
 			
-			for (int row = 0; row < width; row++) {
-				for (int col = 0; col < height; col++) {
+			for (int row = 0; row < height; row++) {
+				for (int col = 0; col < width; col++) {
 					//Going left-right then next line (1 down)
 					int pixel = inputImage.getRGB(col, row);
 					
-					for (int channel = 0; channel < 4; channel++) {
+					for (int channel = 0; channel < 4; channel++)
 						imageInBytes[row][col][channel] = (byte) (pixel >>> (24 - channel*8));
-					}
 				}
 			}
 			
