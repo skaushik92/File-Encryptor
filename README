@@ -24,8 +24,15 @@ java -Xmx1024M Encryptor Science\ Is\ Fun.mp3 awesome\ face.png
 
 Larger data and images take more time. A 5000 by 5000 image loading a 6.5 MB file takes 30 seconds. This will be optimized soon.
 
-
 Once again, please make sure that this is a PNG file that is provided.
+
+
+If you are unsure as to how large of an image file is necessary to embed this image, run the following command:
+
+java Encryptor nameOfFileToEncrypt
+
+This will print out information about the number of pixels, and give an example of an image size that could fit this file.
+
 
 ===================
 History
