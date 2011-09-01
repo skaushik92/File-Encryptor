@@ -5,13 +5,17 @@ This repository contains code to encrypt and decrypt any file into an already ex
 ===================
 Instructions
 ===================
-To use, simply make a new directory, move in the file to convert, the image file, and the two class files, and use the following commands:
+To use, simply make a new directory, move in the file to convert, the image file, and the three class files, and use the following commands:
 
 To Encrypt:
 java Encryptor nameOfFileToEncrypt [imageFileName [-STR]]
 To Decrypt:
 java Decryptor nameOfImageFileToDecrypt
 
+
+The strong encryption option -STR instructs the command to use is a special encryption method in which the data is not directly stored in the image, but rather something generated from the given data is stored. When decrypted, the generated information is used to find the original information. It makes sure that if the image caused suspicion, and the bit information was gathered, the original file will not be compromised and will most likely be overlooked.
+
+Of course, if the interceptor finds my program, and uses it to decrypt the image, the data can be found.  
 ===================
 History
 ===================
@@ -27,7 +31,7 @@ Includes basic functionality of encryption
 ----------------
 Wednesday Aug 31
 ----------------
-17:31 - Finished version 1.5
+17:31 - Finished version 0.1.5
 Includes the name of the file in the encryption technique
 ===================
 Author
