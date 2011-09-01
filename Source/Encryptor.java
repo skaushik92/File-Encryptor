@@ -190,14 +190,29 @@ public class Encryptor {
 		int simpleEncryptionNumPixels= 2 * simpleEncryptionNumBytes;
 		int strongEncryptionNumPixels= 2 * strongEncryptionNumBytes;
 		
+		int[] simpleFactors = largestFactors(simpleEncryptionNumPixels);
+		int[] strongFactors = largestFactors(strongEncryptionNumPixels);
+		
 		if (printOut) {
-			System.out.println("For simple encryption of the file \""+inputFileName+"\", " + simpleEncryptionNumPixels + " pixels are needed.");
-			System.out.println("For strong encryption of the file \""+inputFileName+"\", " + strongEncryptionNumPixels + " pixels are needed.");
+			System.out.println("For simple encryption of the file \""+inputFileName+"\", " + simpleEncryptionNumPixels + " pixels are needed. That means it requires at least a " + simpleFactors[0] + " x " + simpleFactors[1] + " image.");
+			System.out.println("For strong encryption of the file \""+inputFileName+"\", " + strongEncryptionNumPixels + " pixels are needed. That means it requires at least a " + strongFactors[0] + " x " + strongFactors[1] + " image.");
 			System.out.println("The benefit of strong encryption is that the binary information stored on the last bit of each channel of each pixel is not the actual binary information of the file, but rather an output of a function. The inverse of the function will be taken when the file is decrypted.");		
 		}
 		return new int[] {simpleEncryptionNumPixels, strongEncryptionNumPixels};
 	}
     
+	private static int[] largestFactors ( int num ) {
+		int sqrt = (int)Math.sqrt(num);
+		
+		while (sqrt > 1 && Math.abs(sqrt - num/sqrt) < Math.sqrt(num) * .1) {
+			if (num % sqrt == 0)
+				return new int [] {sqrt, num / sqrt};
+			else
+				sqrt--;
+		}
+		return largestFactors ( num + 1 );
+	}
+	
     /*
      * Encrypts the input file by either using simple encryption or strong encryption.
      * They are detailed below:
@@ -338,9 +353,8 @@ public class Encryptor {
 		
 		int lastDot = inputImageName.lastIndexOf('.');
 		String newName = lastDot == -1 ? inputImageName + encryptTag + ".png" : 
-										 inputImageName.substring(0, lastDot) + encryptTag + inputImageName.substring(lastDot);
+										 inputImageName.substring(0, lastDot) + "-" + inputFileName + encryptTag + inputImageName.substring(lastDot);
 		
 		ByteIO.writeImage(newName, image);
 	}
-	
 }

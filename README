@@ -8,9 +8,9 @@ Instructions
 To use, simply make a new directory, move in the file to convert, the image file, and the two class files, and use the following commands:
 
 To Encrypt:
-java FileEncryptor filename pngfilename outputfilename
+java Encryptor nameOfFileToEncrypt [imageFileName [-STR]]
 To Decrypt:
-java FileDecryptor encryptedfilename outputfilename
+java Decryptor nameOfImageFileToDecrypt
 
 ===================
 History
@@ -22,8 +22,13 @@ Wednesday Jul 13
 ----------------
 Thursday Jul 14
 ----------------
-02:53 - Finished version 1.
-
+02:53 - Finished version 0.1.0
+Includes basic functionality of encryption
+----------------
+Wednesday Aug 31
+----------------
+17:31 - Finished version 1.5
+Includes the name of the file in the encryption technique
 ===================
 Author
 ===================
