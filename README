@@ -17,6 +17,14 @@ The strong encryption option -STR instructs the command to use is a special encr
 
 Of course, if the interceptor finds my program, and uses it to decrypt the image, the data can be found.  
 
+If the image or data files are large, make sure to provide sufficient memory for JVM's heap.
+Here is an example of the run command for the files in the Test3 directory.
+
+java -Xmx1024M Encryptor Science\ Is\ Fun.mp3 awesome\ face.png
+
+Larger data and images take more time. A 5000 by 5000 image loading a 6.5 MB file takes 30 seconds. This will be optimized soon.
+
+
 Once again, please make sure that this is a PNG file that is provided.
 
 ===================
